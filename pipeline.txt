@@ -1,0 +1,26 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('One') {
+            steps {
+                echo 'Clone Repo - https://github.com/devclass1/classwebsite3.git'
+                git branch: 'main', url:'https://github.com/devclass1/classwebsite3.git'
+            }
+        }
+        stage('Two') {
+            steps {
+                echo 'Hello World Two'
+                sh'''
+                cd /var/lib/jenkins/workspace/pipeline1
+                ls -l 
+                '''
+            }
+        }
+        stage('Three') {
+            steps {
+                echo 'Hello World Three'
+                echo 'project successfully done'            }
+        }
+    }
+}
